@@ -4,7 +4,7 @@ from flask import Flask, render_template, redirect
 
 from models import db, User, connect_db
 
-from forms import RegistrationForm
+from forms import RegistrationForm, LoginForm
 
 app = Flask(__name__)
 
@@ -35,7 +35,9 @@ def show_registration_form():
 
     if register_form.validate_on_submit():
         data = {k: v for k, v in register_form.data.items() if k!= "csrf_token"}
-        #buggy? check back
+        #not hurting but we are expliticly passing in things
+        #could just do register_form.data
+        
     
         new_user = User.register(
                    data['username'],
