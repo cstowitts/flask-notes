@@ -2,8 +2,10 @@ appnope==0.1.2
 asttokens==2.0.5
 autopep8==1.6.0
 backcall==0.2.0
+bcrypt==3.2.0
 black==22.1.0
 blinker==1.4
+cffi==1.15.0
 click==8.0.3
 decorator==5.1.1
 executing==0.8.2
@@ -29,6 +31,7 @@ psycopg2-binary==2.9.3
 ptyprocess==0.7.0
 pure-eval==0.2.2
 pycodestyle==2.8.0
+pycparser==2.21
 Pygments==2.11.2
 python-dotenv==0.19.2
 six==1.16.0
