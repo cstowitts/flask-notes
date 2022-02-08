@@ -18,8 +18,8 @@ class User(db.Model):
     last_name = db.Column(db.String(30), nullable=False)
 
 
-    def connect_db(app):
-        """Connect to database."""
+def connect_db(app):
+    """Connect to database."""
 
-        db.app = app
-        db.init_app(app)
+    db.app = app
+    db.init_app(app)
