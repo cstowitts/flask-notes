@@ -1,12 +1,12 @@
 """Models for Notes app"""
 
-import bcrypt
+# import bcrypt
 from flask_sqlalchemy import SQLAlchemy
 
 from flask_bcrypt import Bcrypt
 
 db = SQLAlchemy()
-
+bcrypt = Bcrypt()
 
 class User(db.Model):
     """User model"""
@@ -23,7 +23,7 @@ class User(db.Model):
     @classmethod
     def register(cls, username, password, email, first_name, last_name):
         """Register user w/ hashed password and return user"""
-
+        
         hashed = bcrypt.generate_password_hash(password).decode('utf8')
 
         return cls(username=username,

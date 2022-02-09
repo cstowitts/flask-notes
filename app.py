@@ -1,6 +1,6 @@
 """Flask app for Notes"""
 
-from flask import Flask, render_template, redirect, session
+from flask import Flask, render_template, redirect, session, flash
 
 from models import db, User, connect_db
 
@@ -54,7 +54,7 @@ def show_registration_form():
 
 
 @app.route('/login', methods=["GET", "POST"])
-def login():
+def show_login_form():
     """GET: Show a form that when submitted will login a user.
         This form should accept a username and a password.
 
@@ -72,5 +72,17 @@ def login():
             session["username"] = user.username
             return redirect("/secret")
     else:
-        render_template("login.html", form=login_form)
+        return render_template("login.html", form=login_form)
+
+
+@app.get("/secret")
+def show_secret():
+    """Show secret page if user logged in"""
+
+    # if "username" not in session:
+    #     flash("You must be logged in to view")
+    #     return redirect("/register")
+    # else:
+    return render_template("secret.html")
+
 
